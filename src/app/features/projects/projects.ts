@@ -1,7 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 
-type ProjectCategory = 'all' | 'fullstack' | 'backend';
+type ProjectCategory = 'all' | 'fullstack' | 'backend' | 'frontend';
 
 @Component({
   selector: 'app-projects',
@@ -14,97 +14,84 @@ export class Projects {
   selectedFilter: ProjectCategory = 'all';
 
   readonly featuredProject = {
-    title: 'Password Manager',
-    label: 'Featured Build',
-    summary:
-      'A secure full stack password manager redesigned from a monolith into microservices with JWT-protected access, encrypted vault storage, and service-to-service API communication.',
-    role: 'Full Stack Java Developer',
-    impact: 'Designed the Angular client, secure Spring Boot services, and the migration path toward a more scalable architecture.',
-    stack: ['Angular', 'Spring Boot', 'JWT', 'AES Encryption', 'MySQL', 'Docker'],
-    highlights: [
-      { value: '3', label: 'Core services separated for auth, vault, and audit flows' },
-      { value: 'JWT', label: 'Token-based session flow protecting every private route' },
-      { value: 'AES', label: 'Encrypted credential storage before persistence' },
+    title: 'Microservices Password Manager',
+    category: 'fullstack' as const,
+    description:
+      'Cloud-native password manager built using Spring Boot microservices architecture with secure authentication, AES encryption, 2FA, and real-time notifications.',
+    tech: ['Spring Boot', 'Spring Cloud', 'Angular', 'Docker', 'AWS'],
+    features: [
+      'Microservices for User, Vault, Generator, and Notification domains',
+      'API Gateway and Eureka-based service discovery',
+      'OpenFeign communication between services',
+      'Dockerized deployment for cloud-ready delivery',
     ],
   };
 
-  readonly architectureFlow = [
-    {
-      phase: 'Monolith',
-      title: 'Single application foundation',
-      description:
-        'The first version bundled login, vault operations, and admin logic into one service for rapid prototyping.',
-    },
-    {
-      phase: 'Gateway',
-      title: 'Auth-first request entry',
-      description:
-        'JWT validation and route protection were isolated so every request could be screened before hitting business services.',
-    },
-    {
-      phase: 'Microservices',
-      title: 'Independent business domains',
-      description:
-        'Vault, user management, and audit responsibilities were separated to improve scaling, maintainability, and deployments.',
-    },
-  ];
-
-  readonly jwtFlow = [
-    'User logs in from Angular UI with validated credentials',
-    'Auth service issues a signed JWT after successful verification',
-    'Angular attaches the JWT to protected API requests',
-    'Gateway and services validate the token before serving data',
-  ];
-
-  readonly apiFlow = [
-    {
-      title: 'Angular Client',
-      description: 'Handles forms, dashboard state, and secure request dispatching.',
-    },
-    {
-      title: 'Auth API',
-      description: 'Verifies users, creates JWT tokens, and manages access control.',
-    },
-    {
-      title: 'Vault API',
-      description: 'Encrypts and stores password records while returning masked payloads.',
-    },
-    {
-      title: 'Audit API',
-      description: 'Captures events like logins, vault updates, and suspicious access attempts.',
-    },
-  ];
-
   readonly projects = [
     {
-      title: 'Password Manager',
+      title: 'Microservices Password Manager',
       category: 'fullstack' as const,
       description:
-        'Secure password manager with JWT, AES encryption, and microservices architecture.',
-      tech: ['Angular', 'Spring Boot', 'MySQL', 'Docker'],
+        'Cloud-native password manager built using Spring Boot microservices architecture with secure authentication, AES encryption, 2FA, and real-time notifications.',
+      tech: ['Spring Boot', 'Spring Cloud', 'Angular', 'Docker', 'AWS'],
+      features: [
+        'Microservices (User, Vault, Generator, Notification)',
+        'API Gateway + Eureka',
+        'OpenFeign communication',
+        'Dockerized deployment',
+      ],
       highlight: true,
-      github: 'https://github.com/Akshataband',
-      live: '',
+    },
+    {
+      title: 'Full Stack Password Manager',
+      category: 'fullstack' as const,
+      description:
+        'Secure web application for storing and managing passwords with encryption and 2FA.',
+      tech: ['Angular', 'Spring Boot', 'MySQL'],
+      features: [
+        'Authentication + security questions',
+        'Password vault',
+        'Google Authenticator (2FA)',
+        'CI/CD using GitHub Actions',
+      ],
+      highlight: false,
+    },
+    {
+      title: 'Console Password Manager',
+      category: 'backend' as const,
+      description:
+        'Java-based console application implementing secure password storage using layered architecture.',
+      tech: ['Java', 'JDBC', 'MySQL'],
+      features: ['CRUD operations', 'AES encryption', 'JUnit testing'],
+      highlight: false,
     },
     {
       title: 'Aarogya Meals',
-      category: 'fullstack' as const,
+      category: 'frontend' as const,
       description:
-        'Responsive nutrition-focused meal platform with meal category browsing, dietary guidance, and a clean user flow for exploring healthy food choices.',
+        'Responsive nutrition-focused web application that helps users explore healthy meals, dietary choices, and clean meal browsing experiences.',
       tech: ['HTML', 'CSS', 'JavaScript', 'Bootstrap'],
+      features: [
+        'Meal category browsing',
+        'Nutrition-focused user flow',
+        'Responsive frontend layout',
+        'Clean landing and content pages',
+      ],
       highlight: false,
-      github: 'https://github.com/Akshataband/Aarogya-Meals-your-daily-dose-of-nutrition',
-      live: 'https://aarogyameals.netlify.app/',
     },
     {
       title: 'Digitalization of College Campuss',
-      category: 'fullstack' as const,
+      category: 'frontend' as const,
       description:
-        'College workflow digitization project focused on bringing academic and campus-facing processes into one web experience with easier access to information and online interactions.',
+        'Frontend project designed to bring important college information and campus-facing interactions into a more accessible digital experience.',
       tech: ['HTML', 'CSS', 'JavaScript'],
+      features: [
+        'College information sections',
+        'Campus-focused web interface',
+        'Responsive static frontend',
+        'Clear content-based navigation',
+      ],
       highlight: false,
-      github: 'https://github.com/Akshataband/Digitalization-of-College-Campuss',
-      live: 'https://akshata-band.netlify.app/',
     },
   ];
 

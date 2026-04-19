@@ -1,175 +1,81 @@
 <section id="projects" class="section projects-section">
-  <div class="section-copy" data-aos="fade-up">
-    <span class="eyebrow">{{ featuredProject.label }}</span>
+  <div class="projects-copy" data-aos="fade-up">
+    <span class="projects-eyebrow">Featured Builds</span>
     <h2 class="section-title">Projects</h2>
-    <p class="section-intro">
-      The Password Manager is the flagship build in this portfolio, combining security,
-      scalable backend design, and a UI designed for fast, safe credential management.
+    <p class="projects-intro">
+      Password management is the strongest theme in this portfolio, explored through
+      microservices, full stack web architecture, and console-first secure design.
     </p>
   </div>
 
   <article class="featured-project glass" data-aos="fade-up">
-    <div class="featured-overview">
-      <div class="featured-badge">
-        <span class="status-dot"></span>
-        Production-minded architecture case study
-      </div>
-
+    <div class="featured-copy">
+      <span class="featured-label">Highlighted Project</span>
       <h3>{{ featuredProject.title }}</h3>
-      <p class="featured-summary">{{ featuredProject.summary }}</p>
+      <p>{{ featuredProject.description }}</p>
 
-      <div class="featured-meta">
-        <div class="meta-card">
-          <span class="meta-label">Role</span>
-          <strong>{{ featuredProject.role }}</strong>
-        </div>
-        <div class="meta-card">
-          <span class="meta-label">Focus</span>
-          <strong>Security, scaling, API design</strong>
-        </div>
-      </div>
-
-      <p class="featured-impact">{{ featuredProject.impact }}</p>
-
-      <div class="stack-list">
-        <span *ngFor="let item of featuredProject.stack">{{ item }}</span>
-      </div>
-
-      <div class="featured-actions">
-        <button class="btn-primary">View Case Study</button>
-        <button class="ghost-btn">See Repository Flow</button>
+      <div class="tech-list">
+        <span *ngFor="let item of featuredProject.tech">{{ item }}</span>
       </div>
     </div>
 
-    <div class="featured-visual">
-      <div class="metrics-grid">
-        <div class="metric-card glass" *ngFor="let item of featuredProject.highlights">
-          <strong>{{ item.value }}</strong>
-          <span>{{ item.label }}</span>
-        </div>
-      </div>
-
-      <div class="signal-card glass">
-        <span class="signal-label">System signal</span>
-        <div class="signal-bars">
-          <span></span>
-          <span></span>
-          <span></span>
-          <span></span>
-        </div>
-        <p>Encrypted vault access routed through token-aware services.</p>
+    <div class="featured-points">
+      <div class="feature-pill" *ngFor="let item of featuredProject.features">
+        {{ item }}
       </div>
     </div>
   </article>
 
-  <div class="insight-grid">
-    <article class="insight-card glass" data-aos="fade-right">
-      <div class="card-heading">
-        <span class="card-kicker">Architecture Flow</span>
-        <h3>Monolith to microservices</h3>
-      </div>
-
-      <div class="architecture-path">
-        <div class="architecture-node" *ngFor="let phase of architectureFlow; let last = last">
-          <div class="node-orb"></div>
-          <div class="node-copy">
-            <span>{{ phase.phase }}</span>
-            <h4>{{ phase.title }}</h4>
-            <p>{{ phase.description }}</p>
-          </div>
-          <div class="node-line" *ngIf="!last"></div>
-        </div>
-      </div>
-    </article>
-
-    <article class="insight-card glass" data-aos="fade-left">
-      <div class="card-heading">
-        <span class="card-kicker">JWT Authentication</span>
-        <h3>Protected request lifecycle</h3>
-      </div>
-
-      <div class="jwt-flow">
-        <div class="jwt-step" *ngFor="let step of jwtFlow; let index = index">
-          <span class="jwt-index">0{{ index + 1 }}</span>
-          <p>{{ step }}</p>
-        </div>
-      </div>
-    </article>
+  <div class="filters" data-aos="fade-up">
+    <button type="button" [class.active]="selectedFilter === 'all'" (click)="setFilter('all')">
+      All
+    </button>
+    <button
+      type="button"
+      [class.active]="selectedFilter === 'fullstack'"
+      (click)="setFilter('fullstack')"
+    >
+      Full Stack
+    </button>
+    <button
+      type="button"
+      [class.active]="selectedFilter === 'backend'"
+      (click)="setFilter('backend')"
+    >
+      Backend
+    </button>
+    <button
+      type="button"
+      [class.active]="selectedFilter === 'frontend'"
+      (click)="setFilter('frontend')"
+    >
+      Frontend
+    </button>
   </div>
 
-  <article class="api-card glass" data-aos="fade-up">
-    <div class="card-heading">
-      <span class="card-kicker">API Communication</span>
-      <h3>How data moves through the platform</h3>
-    </div>
-
-    <div class="api-grid">
-      <div class="api-block" *ngFor="let item of apiFlow; let last = last">
-        <h4>{{ item.title }}</h4>
-        <p>{{ item.description }}</p>
-        <div class="api-arrow" *ngIf="!last"></div>
+  <div class="projects-grid">
+    <article
+      class="project-card glass"
+      *ngFor="let project of filteredProjects; let index = index"
+      [ngClass]="{ highlight: project.highlight }"
+      data-aos="fade-up"
+      [attr.data-aos-delay]="index * 100"
+    >
+      <div class="project-card-top">
+        <span class="project-category">{{ project.category }}</span>
+        <span class="project-badge" *ngIf="project.highlight">Featured</span>
       </div>
-    </div>
-  </article>
 
-  <div class="project-browser" data-aos="fade-up">
-    <div class="filters">
-      <button
-        type="button"
-        [class.active]="selectedFilter === 'all'"
-        (click)="setFilter('all')"
-      >
-        All
-      </button>
-      <button
-        type="button"
-        [class.active]="selectedFilter === 'fullstack'"
-        (click)="setFilter('fullstack')"
-      >
-        Full Stack
-      </button>
-      <button
-        type="button"
-        [class.active]="selectedFilter === 'backend'"
-        (click)="setFilter('backend')"
-      >
-        Backend
-      </button>
-    </div>
+      <h3>{{ project.title }}</h3>
+      <p>{{ project.description }}</p>
 
-    <div class="projects-grid">
-      <div
-        *ngFor="let project of filteredProjects"
-        class="project-card glass"
-        [ngClass]="{ highlight: project.highlight }"
-      >
-        <div class="project-card-top">
-          <span class="project-category">{{ project.category }}</span>
-          <span class="project-badge" *ngIf="project.highlight">Star project</span>
-        </div>
-
-        <h3>{{ project.title }}</h3>
-        <p>{{ project.description }}</p>
-
-        <div class="tech">
-          <span *ngFor="let tech of project.tech">{{ tech }}</span>
-        </div>
-
-        <div class="actions">
-          <a class="btn-primary" [href]="project.github" target="_blank" rel="noreferrer">
-            GitHub
-          </a>
-          <a
-            class="ghost-btn"
-            *ngIf="project.live"
-            [href]="project.live"
-            target="_blank"
-            rel="noreferrer"
-          >
-            Live Demo
-          </a>
-        </div>
+      <div class="tech-list">
+        <span *ngFor="let item of project.tech">{{ item }}</span>
       </div>
-    </div>
+
+      <ul class="feature-list">
+        <li *ngFor="let item of project.features">{{ item }}</li>
+      </ul>
+    </article>
   </div>
 </section>

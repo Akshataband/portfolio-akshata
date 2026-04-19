@@ -1,56 +1,36 @@
-<section id="about" class="section about">
-
-  <h2 class="section-title" data-aos="fade-up">About Me</h2>
-
-  <div class="about-container">
-
-    <!-- LEFT SIDE -->
-    <div class="about-text glass" data-aos="fade-right">
-      <p>
-        I am a passionate Full Stack Java Developer with a strong interest in building
-        modern and scalable web applications.
-      </p>
-
-      <p>
-        I started my journey in Electrical Engineering and later transitioned into IT,
-        where I discovered my passion for software development.
-      </p>
-
-      <p>
-        I enjoy working with technologies like Angular, Spring Boot, and building
-        full-stack applications with clean architecture.
-      </p>
-    </div>
-
-    <!-- RIGHT SIDE TIMELINE -->
-    <div class="timeline" data-aos="fade-left">
-
-      <div class="timeline-item">
-        <div class="dot"></div>
-        <div class="content glass">
-          <h3>Electrical Engineering</h3>
-          <p>Built strong analytical and problem-solving skills.</p>
-        </div>
-      </div>
-
-      <div class="timeline-item">
-        <div class="dot"></div>
-        <div class="content glass">
-          <h3>Transition to IT</h3>
-          <p>Started learning programming and full stack development.</p>
-        </div>
-      </div>
-
-      <div class="timeline-item">
-        <div class="dot"></div>
-        <div class="content glass">
-          <h3>Full Stack Developer</h3>
-          <p>Built real-world projects using Angular, Spring Boot, and MySQL.</p>
-        </div>
-      </div>
-
-    </div>
-
+<section id="about" class="section about-section">
+  <div class="about-copy" data-aos="fade-up">
+    <span class="about-eyebrow">About</span>
+    <h2 class="section-title">About Me</h2>
+    <p class="about-tagline">{{ role }}</p>
   </div>
 
+  <div class="about-layout">
+    <article class="about-summary glass" data-aos="fade-right">
+      <h3>Akshata Band</h3>
+      <p>{{ summary }}</p>
+
+      <div class="about-highlights">
+        <div class="highlight-card" *ngFor="let item of highlights">
+          <h4>{{ item.title }}</h4>
+          <p>{{ item.description }}</p>
+        </div>
+      </div>
+    </article>
+
+    <article class="about-journey glass" data-aos="fade-left">
+      <h3>Journey Snapshot</h3>
+
+      <div class="journey-list">
+        <div class="journey-item" *ngFor="let item of journey; let last = last">
+          <span class="journey-dot"></span>
+          <div class="journey-copy">
+            <h4>{{ item.title }}</h4>
+            <p>{{ item.description }}</p>
+          </div>
+          <span class="journey-line" *ngIf="!last"></span>
+        </div>
+      </div>
+    </article>
+  </div>
 </section>

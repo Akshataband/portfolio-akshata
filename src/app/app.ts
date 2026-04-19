@@ -4,6 +4,7 @@ import AOS from 'aos';
 
 import { About } from './features/about/about';
 import { Chatbot } from './features/chatbot/chatbot';
+import { Certifications } from './features/certifications/certifications';
 import { Contact } from './features/contact/contact';
 import { Experience } from './features/experience/experience';
 import { Hero } from './features/hero/hero';
@@ -23,6 +24,7 @@ import { Navbar } from './layout/navbar/navbar';
     Skills,
     Projects,
     Experience,
+    Certifications,
     Contact,
     Chatbot,
   ],

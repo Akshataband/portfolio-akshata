@@ -1,0 +1,22 @@
+<section id="certifications" class="section certifications-section">
+  <div class="certifications-copy" data-aos="fade-up">
+    <span class="certifications-eyebrow">Growth</span>
+    <h2 class="section-title">Certifications</h2>
+    <p class="certifications-intro">
+      Learning areas that directly support my Java full stack, security, and cloud-focused development path.
+    </p>
+  </div>
+
+  <div class="certifications-grid">
+    <article
+      class="certification-card glass"
+      *ngFor="let item of certifications; let index = index"
+      data-aos="fade-up"
+      [attr.data-aos-delay]="index * 90"
+    >
+      <span class="certification-subtitle">{{ item.subtitle }}</span>
+      <h3>{{ item.title }}</h3>
+      <p>{{ item.description }}</p>
+    </article>
+  </div>
+</section>

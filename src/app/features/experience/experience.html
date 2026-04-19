@@ -1,1 +1,27 @@
-<p>experience works!</p>
+<section id="experience" class="section experience-section">
+  <div class="experience-copy" data-aos="fade-up">
+    <span class="experience-eyebrow">Experience</span>
+    <h2 class="section-title">Journey & Experience</h2>
+    <p class="experience-intro">
+      A transition from engineering fundamentals into secure Java full stack
+      development, shaped by hands-on project building and architecture-focused learning.
+    </p>
+  </div>
+
+  <div class="timeline-shell glass" data-aos="fade-up">
+    <div class="timeline-list">
+      <article class="timeline-card" *ngFor="let item of timeline; let index = index">
+        <div class="timeline-marker">
+          <span class="marker-dot"></span>
+          <span class="marker-line" *ngIf="index !== timeline.length - 1"></span>
+        </div>
+
+        <div class="timeline-content">
+          <span class="timeline-period">{{ item.period }}</span>
+          <h3>{{ item.title }}</h3>
+          <p>{{ item.description }}</p>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
