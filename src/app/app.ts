@@ -39,6 +39,8 @@ export class App implements OnInit {
         once: true,
         easing: 'ease-in-out',
       });
+      window.requestAnimationFrame(() => AOS.refreshHard());
+      window.addEventListener('load', () => AOS.refreshHard(), { once: true });
     }
   }
 }

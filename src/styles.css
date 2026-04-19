@@ -31,6 +31,12 @@ body {
   scroll-behavior: smooth;
 }
 
+/* Keep content visible even if AOS fails to attach animation classes on hash loads. */
+[data-aos] {
+  opacity: 1 !important;
+  transform: none !important;
+}
+
 /* ===== GLASS EFFECT ===== */
 .glass {
   background: var(--glass-bg);

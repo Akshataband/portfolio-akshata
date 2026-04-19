@@ -1,1 +1,138 @@
-<p>contact works!</p>
+<section id="contact" class="section contact-section">
+  <div class="contact-copy" data-aos="fade-up">
+    <span class="contact-eyebrow">Contact</span>
+    <h2 class="section-title">Contact Me</h2>
+    <p class="contact-tagline">Let's build something amazing together.</p>
+  </div>
+
+  <div class="contact-layout">
+    <div class="contact-side" data-aos="fade-right">
+      <article class="contact-panel glass">
+        <h3>Start the conversation</h3>
+        <p>
+          Whether it is a full stack product, Angular frontend, or backend architecture
+          challenge, I am open to meaningful collaborations and new opportunities.
+        </p>
+
+        <div class="info-list">
+          <a
+            class="info-card glass"
+            *ngFor="let item of contactInfo"
+            [href]="item.href"
+            [attr.target]="item.label === 'Location' ? '_blank' : null"
+            [attr.rel]="item.label === 'Location' ? 'noreferrer' : null"
+          >
+            <span class="info-icon">{{ item.icon }}</span>
+            <span class="info-copy">
+              <strong>{{ item.label }}</strong>
+              <span>{{ item.value }}</span>
+            </span>
+          </a>
+        </div>
+
+        <div class="social-block">
+          <h4>Find me online</h4>
+          <div class="social-links">
+            <a
+              class="social-card glass"
+              *ngFor="let social of socialLinks"
+              [href]="social.href"
+              target="_blank"
+              rel="noreferrer"
+            >
+              <span class="social-icon">{{ social.icon }}</span>
+              <span class="social-copy">
+                <strong>{{ social.label }}</strong>
+                <span>{{ social.handle }}</span>
+              </span>
+            </a>
+          </div>
+        </div>
+      </article>
+    </div>
+
+    <div class="form-side" data-aos="fade-left">
+      <article class="form-panel glass">
+        <div class="form-heading">
+          <span class="panel-kicker">Send a message</span>
+          <h3>Tell me about your idea</h3>
+          <p>
+            This form is UI-ready for backend integration and currently validates input
+            in real time using Angular Reactive Forms.
+          </p>
+        </div>
+
+        <form [formGroup]="contactForm" (ngSubmit)="onSubmit()" novalidate>
+          <div class="field-group">
+            <div
+              class="field-shell"
+              [class.invalid]="hasError('name', 'required')"
+              [class.filled]="nameControl.value"
+            >
+              <input id="name" type="text" formControlName="name" placeholder=" " />
+              <label for="name">Name</label>
+            </div>
+            <p class="field-error" *ngIf="hasError('name', 'required')">
+              Name is required.
+            </p>
+          </div>
+
+          <div class="field-group">
+            <div
+              class="field-shell"
+              [class.invalid]="hasError('email', 'required') || hasError('email', 'email')"
+              [class.filled]="emailControl.value"
+            >
+              <input id="email" type="email" formControlName="email" placeholder=" " />
+              <label for="email">Email</label>
+            </div>
+            <p class="field-error" *ngIf="hasError('email', 'required')">
+              Email is required.
+            </p>
+            <p class="field-error" *ngIf="!hasError('email', 'required') && hasError('email', 'email')">
+              Enter a valid email address.
+            </p>
+          </div>
+
+          <div class="field-group">
+            <div
+              class="field-shell textarea-shell"
+              [class.invalid]="
+                hasError('message', 'required') || hasError('message', 'minlength')
+              "
+              [class.filled]="messageControl.value"
+            >
+              <textarea
+                id="message"
+                rows="6"
+                formControlName="message"
+                placeholder=" "
+              ></textarea>
+              <label for="message">Message</label>
+            </div>
+            <p class="field-error" *ngIf="hasError('message', 'required')">
+              Message is required.
+            </p>
+            <p
+              class="field-error"
+              *ngIf="!hasError('message', 'required') && hasError('message', 'minlength')"
+            >
+              Message should be at least 12 characters.
+            </p>
+          </div>
+
+          <div class="form-footer">
+            <button class="btn-primary submit-btn" type="submit" [disabled]="contactForm.invalid">
+              Send Message
+            </button>
+            <p class="helper-text">Response workflow will be connected in the backend layer later.</p>
+          </div>
+
+          <div class="success-toast" *ngIf="showSuccessMessage">
+            Message drafted successfully. Your contact form UI is ready for backend integration.
+          </div>
+        </form>
+      </article>
+    </div>
+  </div>
+</section>
