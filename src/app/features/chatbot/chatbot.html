@@ -1,1 +1,65 @@
-<p>chatbot works!</p>
+<section class="chatbot-shell">
+  <div class="chat-window glass" [class.open]="isOpen" [attr.aria-hidden]="!isOpen">
+    <div class="chat-header">
+      <div class="chat-title-wrap">
+        <span class="chat-kicker">Akshata AI Assistant</span>
+        <p>Ask me about my skills, projects, or experience</p>
+      </div>
+
+      <button type="button" class="icon-btn close-btn" (click)="closeChat()" aria-label="Close chat">
+        <span>&times;</span>
+      </button>
+    </div>
+
+    <div class="chat-body" #messagesContainer>
+      <div
+        class="message-row"
+        *ngFor="let message of chatHistory"
+        [class.user-row]="message.role === 'user'"
+      >
+        <article class="message-bubble" [class.user-bubble]="message.role === 'user'">
+          {{ message.text }}
+        </article>
+      </div>
+
+      <div class="message-row" *ngIf="isTyping">
+        <article class="message-bubble typing-bubble">
+          <span class="typing-dot"></span>
+          <span class="typing-dot"></span>
+          <span class="typing-dot"></span>
+        </article>
+      </div>
+    </div>
+
+    <div class="chat-input-wrap">
+      <textarea
+        [(ngModel)]="messageInput"
+        class="chat-input"
+        rows="1"
+        placeholder="Ask something..."
+        (keydown)="handleEnter($event)"
+      ></textarea>
+
+      <button
+        type="button"
+        class="icon-btn send-btn"
+        (click)="sendMessage()"
+        [disabled]="!messageInput.trim() || isTyping"
+        aria-label="Send message"
+      >
+        <span>&#10148;</span>
+      </button>
+    </div>
+  </div>
+
+  <button
+    type="button"
+    class="chat-trigger"
+    [class.active]="isOpen"
+    (click)="toggleChat()"
+    aria-label="Open chatbot"
+  >
+    <span class="trigger-ring"></span>
+    <span class="trigger-icon">{{ isOpen ? '–' : '✦' }}</span>
+  </button>
+</section>
