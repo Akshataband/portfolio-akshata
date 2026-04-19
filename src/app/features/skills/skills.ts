@@ -26,6 +26,7 @@ export class Skills {
         'Hibernate',
         'REST APIs',
         'Microservices',
+        'Swagger / OpenAPI',
       ],
     },
     {
