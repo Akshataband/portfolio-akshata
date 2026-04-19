@@ -1,0 +1,74 @@
+/* FILTER */
+.filters {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.filters button {
+  margin: 5px;
+  padding: 8px 16px;
+  border-radius: 20px;
+  border: none;
+  background: transparent;
+  color: white;
+  cursor: pointer;
+  border: 1px solid var(--primary);
+  transition: 0.3s;
+}
+
+.filters button:hover {
+  background: var(--primary);
+}
+
+/* GRID */
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+}
+
+/* CARD */
+.project-card {
+  padding: 25px;
+  transition: 0.4s;
+  position: relative;
+}
+
+/* 🔥 HOVER EFFECT */
+.project-card:hover {
+  transform: translateY(-10px) scale(1.03);
+  box-shadow: 0 0 40px rgba(168, 85, 247, 0.7);
+}
+
+/* TECH TAGS */
+.tech {
+  margin: 15px 0;
+}
+
+.tech span {
+  display: inline-block;
+  margin: 5px;
+  padding: 5px 10px;
+  border-radius: 20px;
+  background: rgba(168, 85, 247, 0.2);
+  font-size: 0.8rem;
+}
+
+/* ACTION BUTTONS */
+.actions {
+  display: flex;
+  gap: 10px;
+}
+
+/* 🔥 HIGHLIGHT PROJECT */
+.highlight {
+  border: 1px solid var(--primary);
+  box-shadow: 0 0 50px rgba(168, 85, 247, 0.8);
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  .projects-grid {
+    grid-template-columns: 1fr;
+  }
+}

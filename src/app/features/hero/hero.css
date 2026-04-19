@@ -1,0 +1,25 @@
+.hero {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  position: relative;
+}
+
+.hero span {
+  color: var(--primary);
+}
+
+.typing {
+  font-size: 1.8rem;
+  margin: 20px 0;
+  color: var(--text-secondary);
+}
+
+.buttons {
+  margin-top: 20px;
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+}
