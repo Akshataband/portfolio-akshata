@@ -37,7 +37,7 @@ export class Contact {
     {
       label: 'GitHub',
       handle: 'github.com/akshata-band',
-      href: 'https://github.com/akshata-band',
+      href: 'https://github.com/Akshataband',
       icon: 'GH',
     },
   ];

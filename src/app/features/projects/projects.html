@@ -156,8 +156,18 @@
         </div>
 
         <div class="actions">
-          <button class="btn-primary">GitHub</button>
-          <button class="ghost-btn">Live Demo</button>
+          <a class="btn-primary" [href]="project.github" target="_blank" rel="noreferrer">
+            GitHub
+          </a>
+          <a
+            class="ghost-btn"
+            *ngIf="project.live"
+            [href]="project.live"
+            target="_blank"
+            rel="noreferrer"
+          >
+            Live Demo
+          </a>
         </div>
       </div>
     </div>

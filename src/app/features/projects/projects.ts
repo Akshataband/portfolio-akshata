@@ -83,20 +83,28 @@ export class Projects {
         'Secure password manager with JWT, AES encryption, and microservices architecture.',
       tech: ['Angular', 'Spring Boot', 'MySQL', 'Docker'],
       highlight: true,
+      github: 'https://github.com/Akshataband',
+      live: '',
     },
     {
       title: 'Aarogya Meals',
       category: 'fullstack' as const,
-      description: 'Food delivery system with healthy meal tracking.',
-      tech: ['Angular', 'Spring Boot'],
+      description:
+        'Responsive nutrition-focused meal platform with meal category browsing, dietary guidance, and a clean user flow for exploring healthy food choices.',
+      tech: ['HTML', 'CSS', 'JavaScript', 'Bootstrap'],
       highlight: false,
+      github: 'https://github.com/Akshataband/Aarogya-Meals-your-daily-dose-of-nutrition',
+      live: 'https://aarogyameals.netlify.app/',
     },
     {
-      title: 'Employee Management',
-      category: 'backend' as const,
-      description: 'REST API for managing employees.',
-      tech: ['Spring Boot', 'MySQL'],
+      title: 'Digitalization of College Campuss',
+      category: 'fullstack' as const,
+      description:
+        'College workflow digitization project focused on bringing academic and campus-facing processes into one web experience with easier access to information and online interactions.',
+      tech: ['HTML', 'CSS', 'JavaScript'],
       highlight: false,
+      github: 'https://github.com/Akshataband/Digitalization-of-College-Campuss',
+      live: 'https://akshata-band.netlify.app/',
     },
   ];
 
