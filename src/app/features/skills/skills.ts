@@ -8,6 +8,8 @@ import { Component } from '@angular/core';
   templateUrl: './skills.html',
   styleUrl: './skills.css',
 })
+
+
 export class Skills {
   readonly skillGroups = [
     {
@@ -45,4 +47,16 @@ export class Skills {
       items: ['JUnit', 'Mockito', 'Postman'],
     },
   ];
+
+  ngAfterViewInit() {
+  const cards = document.querySelectorAll('.skill-card');
+
+  cards.forEach((card: any) => {
+    card.addEventListener('mousemove', (e: MouseEvent) => {
+      const rect = card.getBoundingClientRect();
+      card.style.setProperty('--x', `${e.clientX - rect.left}px`);
+      card.style.setProperty('--y', `${e.clientY - rect.top}px`);
+    });
+  });
+}
 }

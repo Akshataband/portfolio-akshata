@@ -8,12 +8,12 @@
     </p>
   </div>
 
-  <div class="skills-3d-wrapper">
-  <div class="card-3d">
-    <div
-      class="skill-card glass"
-      *ngFor="let group of skillGroups; let i = index"
-    >
+  <div class="skills-grid">
+  <article
+    class="skill-card glass"
+    *ngFor="let group of skillGroups; let index = index"
+  >
+    <div class="skill-inner">
       <div class="skill-icon-wrap">
         <i class="{{ group.icon }} skill-icon"></i>
       </div>
@@ -24,6 +24,6 @@
         <span *ngFor="let item of group.items">{{ item }}</span>
       </div>
     </div>
-  </div>
+  </article>
 </div>
 </section>
