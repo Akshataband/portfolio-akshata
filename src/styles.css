@@ -14,7 +14,12 @@
 
   --glass-bg: rgba(255, 255, 255, 0.05);
   --border-glass: rgba(255, 255, 255, 0.1);
+
+  --z-navbar: 1000;
+  --z-chatbot: 900;
+  --z-hero: 1;
 }
+
 
 /* ===== RESET ===== */
 * {
@@ -76,3 +81,4 @@ body {
   -webkit-background-clip: text;
   color: transparent;
 }
+

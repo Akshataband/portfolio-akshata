@@ -22,7 +22,7 @@
 }
 
 .skills-grid {
-  display: grid;
+  display: none;
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 1.25rem;
 }
@@ -79,6 +79,54 @@
   position: relative;
   z-index: 1;
 }
+.card-3d {
+  position: relative;
+  width: 500px;
+  height: 350px;
+
+  transform-style: preserve-3d;
+  animation: autoRun3d 20s linear infinite;
+}
+
+.card-3d .skill-card {
+  position: absolute;
+
+  width: 220px;
+  height: auto;
+
+  top: 50%;
+  left: 50%;
+
+  transform-origin: center;
+  transform-style: preserve-3d;
+
+  padding: 1.2rem;
+
+  animation: animateBrightness 20s linear infinite;
+}
+.card-3d .skill-card:nth-child(1) {
+  transform: translate(-50%, -50%) rotateY(0deg) translateZ(260px);
+}
+.card-3d .skill-card:nth-child(2) {
+  transform: translate(-50%, -50%) rotateY(72deg) translateZ(260px);
+}
+.card-3d .skill-card:nth-child(3) {
+  transform: translate(-50%, -50%) rotateY(144deg) translateZ(260px);
+}
+.card-3d .skill-card:nth-child(4) {
+  transform: translate(-50%, -50%) rotateY(216deg) translateZ(260px);
+}
+.card-3d .skill-card:nth-child(5) {
+  transform: translate(-50%, -50%) rotateY(288deg) translateZ(260px);
+}
+
+.card-3d:hover {
+  animation-play-state: paused;
+}
+
+.card-3d:hover .skill-card {
+  animation-play-state: paused;
+}
 
 .skill-list {
   display: flex;
@@ -102,9 +150,46 @@
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
+@media (max-width: 768px) {
+  .card-3d {
+    width: 300px;
+    height: 300px;
+  }
 
+  .card-3d .skill-card {
+    width: 180px;
+  }
+}
 @media (max-width: 640px) {
   .skills-grid {
     grid-template-columns: 1fr;
+  }
+}
+.skills-3d-wrapper {
+  display: flex;
+  justify-content: flex-start; 
+  align-items: center;
+  margin-top: 4rem;
+  padding-left: 4rem; 
+  perspective: 1200px;
+}
+@keyframes autoRun3d {
+  from {
+    transform: perspective(1000px) rotateY(-360deg);
+  }
+  to {
+    transform: perspective(1000px) rotateY(0deg);
+  }
+}
+
+@keyframes animateBrightness {
+  10% {
+    filter: brightness(1);
+  }
+  50% {
+    filter: brightness(0.4);
+  }
+  90% {
+    filter: brightness(1);
   }
 }

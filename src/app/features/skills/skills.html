@@ -8,12 +8,11 @@
     </p>
   </div>
 
-  <div class="skills-grid">
-    <article
+  <div class="skills-3d-wrapper">
+  <div class="card-3d">
+    <div
       class="skill-card glass"
-      *ngFor="let group of skillGroups; let index = index"
-      data-aos="fade-up"
-      [attr.data-aos-delay]="index * 80"
+      *ngFor="let group of skillGroups; let i = index"
     >
       <div class="skill-icon-wrap">
         <i class="{{ group.icon }} skill-icon"></i>
@@ -24,6 +23,7 @@
       <div class="skill-list">
         <span *ngFor="let item of group.items">{{ item }}</span>
       </div>
-    </article>
+    </div>
   </div>
+</div>
 </section>

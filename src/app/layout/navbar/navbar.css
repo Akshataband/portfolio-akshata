@@ -10,7 +10,7 @@
   justify-content: space-between;
   align-items: center;
 
-  z-index: 1000;
+  z-index: var(--z-navbar); 
 }
 
 .logo {
@@ -33,4 +33,13 @@ a {
 
 a:hover {
   color: var(--primary);
+}
+
+.chatbot-shell {
+  z-index: var(--z-chatbot);
+}
+
+.hero {
+  position: relative;
+  z-index: var(--z-hero);
 }
