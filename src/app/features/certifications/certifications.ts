@@ -10,23 +10,22 @@ import { Component } from '@angular/core';
 })
 export class Certifications {
   readonly certifications = [
-    {
-      title: 'Java Full Stack Development',
-      subtitle: 'Training Focus',
-      description:
-        'Hands-on learning across frontend, backend, database integration, and production-ready Java application structure.',
-    },
-    {
-      title: 'Spring Security & Microservices',
-      subtitle: 'Architecture Focus',
-      description:
-        'Applied authentication, encryption workflows, secure APIs, and distributed service design in portfolio projects.',
-    },
-    {
-      title: 'AWS & Docker Foundations',
-      subtitle: 'Deployment Focus',
-      description:
-        'Focused on containerized delivery, cloud deployment readiness, and scalable application workflows.',
-    },
-  ];
+  {
+    title: 'Professional Full Stack Java Development',
+    subtitle: 'JSpiders Training Center',
+    description:
+      'Completed professional training covering Core Java, J2EE, SQL, Web Technologies, Frameworks, React JS and Python. Built strong foundations in full-stack development and software engineering.',
+    viewUrl: 'assets/certificates/jspiders-fullstack-java.jpg',
+    downloadUrl: 'assets/certificates/jspiders-fullstack-java.jpg'
+  },
+
+  {
+    title: 'Java Full Stack Training Program',
+    subtitle: 'Revature Consultancy Services',
+    description:
+      'Successfully completed a 13-week Java Full Stack training program focused on enterprise application development, frontend and backend technologies, database integration and industry-standard development practices.',
+    viewUrl: 'assets/certificates/revature-training-certificate.pdf',
+    downloadUrl: 'assets/certificates/revature-training-certificate.pdf'
+  }
+];
 }

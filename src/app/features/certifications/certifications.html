@@ -1,22 +1,62 @@
 <section id="certifications" class="section certifications-section">
+
   <div class="certifications-copy" data-aos="fade-up">
-    <span class="certifications-eyebrow">Growth</span>
-    <h2 class="section-title">Certifications</h2>
+    <span class="certifications-eyebrow">Professional Training</span>
+
+    <h2 class="section-title">
+      Certifications & Training
+    </h2>
+
     <p class="certifications-intro">
-      Learning areas that directly support my Java full stack, security, and cloud-focused development path.
+      Professional training programs focused on Java Full Stack Development,
+      modern web technologies, enterprise application development,
+      software architecture and industry best practices.
     </p>
   </div>
 
   <div class="certifications-grid">
+
     <article
       class="certification-card glass"
-      *ngFor="let item of certifications; let index = index"
-      data-aos="fade-up"
-      [attr.data-aos-delay]="index * 90"
-    >
-      <span class="certification-subtitle">{{ item.subtitle }}</span>
-      <h3>{{ item.title }}</h3>
-      <p>{{ item.description }}</p>
+      *ngFor="let item of certifications"
+      data-aos="fade-up">
+
+      <div class="card-top">
+
+        <span class="certification-subtitle">
+          {{ item.subtitle }}
+        </span>
+
+        <h3>{{ item.title }}</h3>
+
+        <p>
+          {{ item.description }}
+        </p>
+
+      </div>
+
+      <div class="certificate-actions">
+
+        <a
+          [href]="item.viewUrl"
+          target="_blank"
+          class="certificate-btn view-btn"
+        >
+          View Certificate
+        </a>
+
+        <a
+          [href]="item.downloadUrl"
+          [attr.download]="item.title"
+          class="certificate-btn download-btn"
+        >
+          Download
+        </a>
+
+      </div>
+
     </article>
+
   </div>
+
 </section>
